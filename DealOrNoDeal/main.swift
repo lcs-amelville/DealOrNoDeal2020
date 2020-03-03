@@ -113,7 +113,45 @@ for x in 1...briefcasesOpened {
     briefcaseValues[theBriefCaseOpened - 1] = 0
 }
 
+let briefcasesAverage = (briefcaseValues[0] + briefcaseValues[1] + briefcaseValues[2] + briefcaseValues[3] + briefcaseValues[4] + briefcaseValues[5] + briefcaseValues[6] + briefcaseValues[7] + briefcaseValues[8] + briefcaseValues[9]) / (10 - briefcasesOpened)
     
+var bankersOffer = 0
+
+
+while true {
+
+print("What is the bankers offer?")
+guard let inputGiven = readLine() else {
+    
+    // No input given, return to top of loop and ask again
+    continue
+}
+
+// Attempt to make input into an integer
+guard let integerGiven = Int(inputGiven) else {
+    
+    // Could not make input into an integer, so return to top and ask again
+    continue
+
+}
+
+// Check that integer is in desired range
+// REMEMBER: Guard statement conditions describe what we WANT
+guard integerGiven > 0, integerGiven < 1_000_000 else {
+    
+    // Integer not in desired range, return to top and ask again
+    continue
+}
+    bankersOffer = integerGiven
+    // Stop the loop
+    break
+}
+
+if bankersOffer > briefcasesAverage  {
+    print("Deal")
+}else {
+    print("No Deal")
+}
 
 
 
